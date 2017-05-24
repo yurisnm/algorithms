@@ -1,6 +1,4 @@
-#   Program to print BFS traversal from a given source
-# vertex. BFS(int s) traverses vertices reachable
-# from s.
+#   Program to print BFS and DFS
 
 #   defaultdict is a variation of dict that if the key doesn't exist it will be
 # created and the value will be added, if it does exist it will be just added.
@@ -16,7 +14,7 @@ class Graph:
     # add an edge to the graph
     def add_edge(self, u, v):
         self.graph[u].append(v)
-    def add_edge_bi_directional(self, u, v):
+    def add_edge_bidirectional(self, u, v):
         self.graph[u].append(v)
         self.graph[v].append(u)
 
@@ -84,21 +82,29 @@ g.add_edge(1, 2)
 g.add_edge(2, 0)
 g.add_edge(2, 3)
 g.add_edge(3, 3)
+#0-→1
+#⇅ ↙
+#2-→3↻
+#
+
+
+
 g2 = Graph()
-g2.add_edge_bi_directional('a', 'b')
-g2.add_edge_bi_directional('b', 'c')
-g2.add_edge_bi_directional('c', 'd')
-g2.add_edge_bi_directional('d', 'a')
+g2.add_edge_bidirectional('a', 'b')
+g2.add_edge_bidirectional('b', 'c')
+g2.add_edge_bidirectional('c', 'd')
+g2.add_edge_bidirectional('d', 'a')
 
-
-g2.add_edge_bi_directional('e', 'a')
-g2.add_edge_bi_directional('e', 'b')
-g2.add_edge_bi_directional('e', 'c')
-g2.add_edge_bi_directional('e', 'd')
-
-
-
-
+g2.add_edge_bidirectional('e', 'a')
+g2.add_edge_bidirectional('e', 'b')
+g2.add_edge_bidirectional('e', 'c')
+g2.add_edge_bidirectional('e', 'd')
+#bidirectional
+#B---C
+#|\ /|
+#| E |
+#|/ \|
+#A---D
 
 g2.dfs('a')
 
